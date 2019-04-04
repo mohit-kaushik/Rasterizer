@@ -13,4 +13,7 @@ def create_road_mask(rasterSrc, vectorSrc, npDistFileName='results.tif',
     
     ## extract data from src Raster File to be emulated
     ## open raster file that is to be emulated
+    srcRas_ds = gdal.Open(rasterSrc)
+    source_ds = ogr.Open(vectorSrc)
+    source_layer = source_ds.GetLayer()
 
