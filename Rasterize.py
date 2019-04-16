@@ -17,3 +17,9 @@ def create_road_mask(rasterSrc, vectorSrc, npDistFileName='results.tif',
     source_ds = ogr.Open(vectorSrc)
     source_layer = source_ds.GetLayer()
 
+    cols = srcRas_ds.RasterXSize
+    rows = srcRas_ds.RasterYSize
+    
+    ## create First raster memory layer, units are pixels
+    # Change output to geotiff instead of memory 
+
