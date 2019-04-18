@@ -22,4 +22,8 @@ def create_road_mask(rasterSrc, vectorSrc, npDistFileName='results.tif',
     
     ## create First raster memory layer, units are pixels
     # Change output to geotiff instead of memory 
+    memdrv = gdal.GetDriverByName('GTiff') 
+    dst_ds = memdrv.Create(npDistFileName, cols, rows, 1, gdal.GDT_Byte, 
+                           options=['COMPRESS=LZW']
+                          )
 
