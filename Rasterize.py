@@ -26,4 +26,8 @@ def create_road_mask(rasterSrc, vectorSrc, npDistFileName='results.tif',
     dst_ds = memdrv.Create(npDistFileName, cols, rows, 1, gdal.GDT_Byte, 
                            options=['COMPRESS=LZW']
                           )
+    gt = srcRas_ds.GetGeoTransform()
+
+    dst_ds.SetGeoTransform(gt)
+    dst_ds.SetProjection(srcRas_ds.GetProjection())
 
