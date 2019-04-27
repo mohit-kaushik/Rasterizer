@@ -30,4 +30,10 @@ def create_road_mask(rasterSrc, vectorSrc, npDistFileName='results.tif',
 
     dst_ds.SetGeoTransform(gt)
     dst_ds.SetProjection(srcRas_ds.GetProjection())
-
+    
+    band = srcRas_ds.GetRasterBand(1)
+    band.SetNoDataValue(noDataValue)    
+    gdal.RasterizeLayer(dst_ds, [1], source_layer, None,None, [1],['ALL_TOUCHED=TRUE'])
+    dst_ds = 0
+    
+    return
